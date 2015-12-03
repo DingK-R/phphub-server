@@ -7,9 +7,9 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 
 class RouteServiceProvider extends ServiceProvider
 {
-    protected $controller_namespace = 'PHPHub\Http\Controllers';
+    protected $controllerNamespace = 'PHPHub\Http\Controllers';
 
-    protected $api_controller_namespace = 'PHPHub\Http\ApiControllers';
+    protected $apiControllerNamespace = 'PHPHub\Http\ApiControllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -32,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureAPIRoute();
 
-        $router->group(['namespace' => $this->controller_namespace], function ($router) {
+        $router->group(['namespace' => $this->controllerNamespace], function ($router) {
             require app_path('Http/routes.php');
         });
     }
@@ -42,10 +42,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function configureAPIRoute()
     {
-        $api_router = app('Dingo\Api\Routing\Router');
-        $api_router->group([
+        $api = app('Dingo\Api\Routing\Router');
+        $api->group([
             'version'   => env('API_PREFIX'),
-            'namespace' => $this->api_controller_namespace,
+            'namespace' => $this->apiControllerNamespace,
         ], function ($router) {
             require app_path('Http/api_routes.php');
         });
