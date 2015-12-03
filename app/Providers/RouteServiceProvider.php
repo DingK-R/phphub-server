@@ -47,7 +47,7 @@ class RouteServiceProvider extends ServiceProvider
             'version'   => env('API_PREFIX'),
             'namespace' => $this->apiControllerNamespace,
         ], function ($router) {
-            require app_path('Http/api_routes.php');
+            require app_path('Http/apiRoutes.php');
         });
     }
 }
