@@ -2,29 +2,24 @@
 
 namespace PHPHub\Transformers;
 
-use PHPHub\Transformers\Traits\HelpersTrait;
-use League\Fractal\TransformerAbstract;
-
 /**
  * Class TopicTransformer.
  */
-class TopicTransformer extends TransformerAbstract
+class TopicTransformer extends BaseTransformer
 {
-    use HelpersTrait;
-
     /**
      * Resources that can be included if requested.
      *
      * @var array
      */
-    protected $availableIncludes = array('user', 'last_reply_user', 'replies', 'node');
+    protected $availableIncludes = ['user', 'last_reply_user', 'replies', 'node'];
 
     /**
      * Include resources without needing it to be requested.
      *
      * @var array
      */
-    protected $defaultIncludes = array();
+    protected $defaultIncludes = [];
 
     /**
      * Transform the \Topic entity.
@@ -35,7 +30,7 @@ class TopicTransformer extends TransformerAbstract
      */
     public function transformData($model)
     {
-        $data          = $model->toArray();
+        $data = $model->toArray();
         $data['links'] = [
             'details_web_view' => route('topic.web_view', $model->id),
             'replies_web_view' => route('replies.web_view', $model->id),

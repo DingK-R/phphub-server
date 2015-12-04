@@ -41,15 +41,15 @@ class ReplyRepository extends BaseRepository implements ReplyRepositoryInterface
      */
     public function store(array $attributes)
     {
-        if (!is_null($this->validator)) {
+        if (! is_null($this->validator)) {
             $this->validator->with($attributes)
                 ->passesOrFail(ValidatorInterface::RULE_CREATE);
         }
 
         $reply = new Reply($attributes);
 
-        $reply->user_id       = Auth::id();
-        $reply->body          = app('markdown')->text($attributes['body']);
+        $reply->user_id = Auth::id();
+        $reply->body = app('markdown')->text($attributes['body']);
         $reply->body_original = $attributes['body'];
 
         $reply->save();
@@ -88,7 +88,7 @@ class ReplyRepository extends BaseRepository implements ReplyRepositoryInterface
      */
     public function byTopicId($topic_id)
     {
-        $this->model = $this->model->query()->where('topic_id', $topic_id);
+        $this->model = $this->model->where('topic_id', $topic_id);
 
         return $this;
     }

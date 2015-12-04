@@ -11,7 +11,7 @@ use Input;
 
 class FilterManager
 {
-    protected static $added_filters  = [];
+    protected static $added_filters = [];
     protected static $parsed_filters = [];
 
     /**
@@ -33,7 +33,7 @@ class FilterManager
      */
     public static function parseRequest()
     {
-        if (self::$parsed_filters != []) {
+        if (self::$parsed_filters !== []) {
             return self::$parsed_filters;
         }
 

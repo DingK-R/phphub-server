@@ -5,7 +5,7 @@ namespace PHPHub\Services\PushService;
 use Config;
 use JPush\JPushClient;
 
-class Jpush
+class JPush
 {
     private $client;
     private $payload;
@@ -18,10 +18,10 @@ class Jpush
      */
     public function __construct()
     {
-        $app_key       = config('services.jpush.app_key');
+        $app_key = config('services.jpush.app_key');
         $master_secret = config('services.jpush.secret');
 
-        $this->client  = new JPushClient($app_key, $master_secret);
+        $this->client = new JPushClient($app_key, $master_secret);
         $this->payload = $this->client->push();
 
         $this->payload->setOptions([
@@ -38,7 +38,7 @@ class Jpush
      */
     public function platform($platform)
     {
-        if (!in_array($platform, ['ios', 'android', 'winphone', 'all'])) {
+        if (! in_array($platform, ['ios', 'android', 'winphone', 'all'])) {
             throw new \InvalidArgumentException('Invalid device type: '.$platform);
         }
 
@@ -115,7 +115,7 @@ class Jpush
      *
      * @return $this
      */
-    public function extras(Array $extras)
+    public function extras(array $extras)
     {
         $this->extras = $extras;
 

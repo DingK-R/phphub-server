@@ -1,17 +1,26 @@
+<p align="center">
+<img src="http://ww4.sinaimg.cn/large/76dc7f1bgw1eyfw7ewb0nj20q808774z.jpg" alt="PHPHub-iOS" title="PHPHub-iOS" width="1000"/>
+</p>
+
+<p align="center">
+<a href="https://styleci.io/repos/42855306"><img src="https://styleci.io/repos/42855306/shield?style=flat"/></a>
+<a href="https://weibo.com/846936588"><img src="https://img.shields.io/badge/contact-@NauxLiu-orange.svg?style=flat" /></a>
+<a href="https://github.com/NauxLiu/phphub-server/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" /></a></p>
+
+
 
 ## PHPHub related projects
 
 You can checkout the others open source projects of PHPHub in the following list.
 
 * [PHPHub-iOS](https://github.com/Aufree/phphub-ios) by [@Aufree](https://github.com/Aufree)
-* [PHPHub-Server](https://github.com/NauxLiu/phphub-server) by [@NauxLiu](https://github.com/NauxLiu)
 * [PHPHub-Android](https://github.com/CycloneAxe/phphub-android) by [@Kelvin](https://github.com/CycloneAxe) and [@Xiaoxiaoyu](https://github.com/xiaoxiaoyu)
 * [PHPHub-UI](https://github.com/phphub/phphub-ui) by [@Summer](https://github.com/phphub/phphub-ui) and [@Aufree](https://github.com/aufree)
 * [PHPHub-Web](https://github.com/summerblue/phphub) by [@Summer](https://github.com/phphub/phphub-ui)
 
 
 # 介绍
-本项目是使用 Laravel 5.1 重写的 [PHPHub](https://github.com/summerblue/phphub)，遵循 `Symfony` 代码规范。基于 MIT 协议开放源码。
+本项目是使用 Laravel 5.1 重写的 [PHPHub](https://github.com/summerblue/phphub)，遵循 [Laravel](https://styleci.readme.io/docs/presets#laravel) 代码规范。
 
 遇到问题或有好的建议？ 欢迎 star 和提交 pr 或提交一个 [issue](https://github.com/NauxLiu/phphub-server/issues) ❤
 
@@ -29,8 +38,6 @@ Docker - 待补充
 
 ### API 文档
 
-待补充
+在线阅读: https://nauxliu.gitbooks.io/phphub-api-doc/content/index.html  
+GitHub: https://github.com/NauxLiu/phphub-api-doc
 
-## 基于本项目 API 开发的项目
-[PHPHub iOS 客户端](https://github.com/Aufree/phphub-ios) - by [@Aufree](https://github.com/Aufree)  
-[PHPHub Android 客户端](https://github.com/CycloneAxe/phphub-android) - by [@CycloneAxe](https://github.com/CycloneAxe), [@xiaoxiaoyu](https://github.com/xiaoxiaoyu), [@NauxLiu](https://github.com/NauxLiu)  

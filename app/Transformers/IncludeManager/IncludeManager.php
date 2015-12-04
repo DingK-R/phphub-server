@@ -14,8 +14,8 @@ use Input;
 class IncludeManager
 {
     private $available_includes = [];
-    private $foreign_keys       = [];
-    private $includes           = null;
+    private $foreign_keys = [];
+    private $includes = null;
 
     /**
      * 添加一个可被引入的项.
@@ -28,13 +28,13 @@ class IncludeManager
     {
         if ($includable->isNested()) {
             $parent_includable = $this->getIncludable($includable->getParentName());
-            if (null == $parent_includable) {
+            if (null === $parent_includable) {
                 throw new Exception('You must define includable '.$includable->getParentName());
             }
             $parent_includable->addChildren($includable);
         }
         $this->available_includes[$includable->getName()] = $includable;
-        $this->foreign_keys[$includable->getName()]       = $includable->getForeignKey();
+        $this->foreign_keys[$includable->getName()] = $includable->getForeignKey();
     }
 
     /**
@@ -84,7 +84,7 @@ class IncludeManager
      */
     public function parseIncludes()
     {
-        if ($this->includes == null) {
+        if ($this->includes === null) {
             return $this->includes = explode(',', Input::get('include'));
         }
 

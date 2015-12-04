@@ -2,23 +2,19 @@
 
 namespace PHPHub\Transformers;
 
-use League\Fractal\TransformerAbstract;
 use PHPHub\Notification;
-use PHPHub\Transformers\Traits\HelpersTrait;
 
 /**
  * Class NotificationTransformer.
  */
-class NotificationTransformer extends TransformerAbstract
+class NotificationTransformer extends BaseTransformer
 {
-    use HelpersTrait;
-
     /**
      * Resources that can be included if requested.
      *
      * @var array
      */
-    protected $availableIncludes = array('from_user', 'topic', 'reply');
+    protected $availableIncludes = ['from_user', 'topic', 'reply'];
 
     /**
      * Transform the \Notification entity.
@@ -29,9 +25,9 @@ class NotificationTransformer extends TransformerAbstract
      */
     public function transformData($model)
     {
-        $data             = $model->toArray();
+        $data = $model->toArray();
         $data['type_msg'] = $model->typeMessage();
-        $data['message']  = $model->message();
+        $data['message'] = $model->message();
 
         return $data;
     }
@@ -43,7 +39,7 @@ class NotificationTransformer extends TransformerAbstract
 
     public function includeReply($model)
     {
-        if ($model->reply == null) {
+        if ($model->reply === null) {
             return;
         }
 
@@ -52,7 +48,7 @@ class NotificationTransformer extends TransformerAbstract
 
     public function includeTopic($model)
     {
-        if ($model->topic == null) {
+        if ($model->topic === null) {
             return;
         }
 

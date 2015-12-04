@@ -2,16 +2,11 @@
 
 namespace PHPHub\Transformers;
 
-use League\Fractal\TransformerAbstract;
-use PHPHub\Transformers\Traits\HelpersTrait;
-
 /**
  * Class NodeTransformer.
  */
-class NodeTransformer extends TransformerAbstract
+class NodeTransformer extends BaseTransformer
 {
-    use HelpersTrait;
-
     /**
      * Transform the \Node entity.
      *
@@ -21,7 +16,7 @@ class NodeTransformer extends TransformerAbstract
      */
     public function transformData($model)
     {
-        $data                = $model->toArray();
+        $data = $model->toArray();
         $data['parent_node'] = $model->parent_node ?: 0;
 
         return $data;

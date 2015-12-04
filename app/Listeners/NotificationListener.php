@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPHub\Handlers\Events;
+namespace PHPHub\Listeners;
 
 use JPush\Exception\APIRequestException;
 use PHPHub\Events\Event;
@@ -9,7 +9,7 @@ use PHPHub\Events\TopicUpVoted;
 use PHPHub\Repositories\NotificationRepositoryInterface;
 use PHPHub\Services\PushService\Jpush;
 
-class PushNotificationHandler
+class NotificationListener
 {
     /**
      * 订阅的时间和处理的方法.
@@ -51,7 +51,7 @@ class PushNotificationHandler
      */
     protected function push($user_ids, $msg, $extras = null)
     {
-        if (!$this->jpush) {
+        if (! $this->jpush) {
             $this->jpush = new Jpush();
         }
 
@@ -99,7 +99,7 @@ class PushNotificationHandler
         ]);
 
         if ($data['reply_id'] !== 0) {
-            $push_data['reply_id']    = $data['reply_id'];
+            $push_data['reply_id'] = $data['reply_id'];
             $push_data['replies_url'] = route('replies.web_view', $data['topic_id']);
         }
 
